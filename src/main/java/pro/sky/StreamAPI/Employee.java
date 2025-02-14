@@ -1,35 +1,45 @@
-package pro.sky.StreamAPI.service;
+package pro.sky.StreamAPI;
 
 import java.util.Objects;
 
 public class Employee {
-    private static int id = 1;
-
-    private String fullName;
+    private static int counter = 1;
+    private final int id;
+    private String firstName;
+    private String lastName;
     private int department;
     private int salary;
 
-    public Employee(String name, int department, int salary) {
-        id = id++;
-        this.fullName = name;
-        setDepartment(department);
+    public Employee(String firstName, String lastName, int salary, int department) {
+        this.id = counter++;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.salary = salary;
+        this.department = department;
     }
 
-    public static int getId() {
+    public int getId() {
         return id;
     }
 
-    public static void setId(int id) {
-        Employee.id = id;
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String name) {
+        this.firstName = name;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String name) {
+        this.lastName = name;
     }
 
     public String getFullName() {
-        return fullName;
-    }
-
-    public void setFullName(String name) {
-        this.fullName = name;
+        return this.firstName + " " + this.lastName;
     }
 
     public int getDepartment() {
@@ -60,7 +70,8 @@ public class Employee {
 
         Employee otherAuthor = (Employee) obj;
 
-        return Objects.equals(fullName, otherAuthor.fullName) &&
+        return Objects.equals(firstName, otherAuthor.firstName) &&
+                Objects.equals(lastName, otherAuthor.lastName) &&
                 Objects.equals(department, otherAuthor.department) &&
                 Objects.equals(salary, otherAuthor.salary);
     }
@@ -74,7 +85,7 @@ public class Employee {
     public String toString() {
         return "Employee{" +
                 "id=" + id +
-                ", fullName='" + fullName + '\'' +
+                ", fullName='" + firstName + lastName + '\'' +
                 ", department=" + department +
                 ", salary=" + salary +
                 '}';
