@@ -17,7 +17,6 @@ public class EmployeeController {
 
     @GetMapping(path = "/add")
     public Employee addEmployee(@RequestParam("firstName") String firstName, @RequestParam("lastName") String lastName, @RequestParam("salary") int salary, @RequestParam("department") int department) {
-        // Ваш код для обработки запроса
         Employee employee = new Employee(firstName, lastName, salary, department);
         return employeeService.addEmployee(employee);
 
@@ -25,7 +24,6 @@ public class EmployeeController {
 
     @GetMapping(path = "/find")
     public Employee getId(@RequestParam("firstName") String firstName, @RequestParam("lastName") String lastName, @RequestParam("salary") int salary, @RequestParam("department") int department) {
-        // Ваш код для обработки запроса
         return employeeService.findEmployee(firstName, lastName);
     }
 
