@@ -16,23 +16,23 @@ public class EmployeeController {
     }
 
     @GetMapping(path = "/add")
-    public Employee addEmployee(@RequestParam("firstName") String name, @RequestParam("lastName") String lastName, @RequestParam("salary") int salary, @RequestParam("department") int department) {
+    public Employee addEmployee(@RequestParam("firstName") String firstName, @RequestParam("lastName") String lastName, @RequestParam("salary") int salary, @RequestParam("department") int department) {
         // Ваш код для обработки запроса
-        Employee employee = new Employee(name, lastName, salary, department);
+        Employee employee = new Employee(firstName, lastName, salary, department);
         return employeeService.addEmployee(employee);
 
     }
 
     @GetMapping(path = "/find")
-    public Employee getId(@RequestParam("firstName") String name, @RequestParam("lastName") String lastName, @RequestParam("salary") int salary, @RequestParam("department") int department) {
+    public Employee getId(@RequestParam("firstName") String firstName, @RequestParam("lastName") String lastName, @RequestParam("salary") int salary, @RequestParam("department") int department) {
         // Ваш код для обработки запроса
-        return employeeService.findEmployee(name, lastName);
+        return employeeService.findEmployee(firstName, lastName);
     }
 
 
     @GetMapping(path = "/del")
-    public Employee delete(@RequestParam("firstName") String name, @RequestParam("lastName") String lastName) {
-        return employeeService.removeEmployee(name, lastName);
+    public Employee delete(@RequestParam("firstName") String firstName, @RequestParam("lastName") String lastName) {
+        return employeeService.removeEmployee(firstName, lastName);
     }
 
 

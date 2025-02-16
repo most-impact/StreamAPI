@@ -41,14 +41,12 @@ public class EmployeeSalaryService implements EmployeeSalaryServiceInterface {
     @Override
     public List<Employee> allEmployeesByDepartment(int department) {
         return employeeService.getEmployeeMap().values().stream()
-                .filter(employee -> employee.getDepartment() == department)
-                .collect(Collectors.toList());
+                .filter(employee -> employee.getDepartment() == department).collect(Collectors.toList());
     }
 
     @Override
     public Map<Integer, List<Employee>> allEmployeesDepartments() {
-        return employeeService.getEmployeeMap().values().stream()
-                .collect(groupingBy(Employee::getDepartment));
+        return employeeService.getEmployeeMap().values().stream().collect(groupingBy(Employee::getDepartment));
     }
 
 }
